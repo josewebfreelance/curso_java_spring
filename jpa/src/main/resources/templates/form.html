@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${titulo}"></h1>
+
+<form th:action="@{/form}" th:object="${cliente}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <div>
+        <label>Nombre</label>
+        <input type="text" th:field="*{nombre}"/>
+        <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+    </div>
+    <div>
+        <label>Apellido</label>
+        <input type="text" th:field="*{apellido}"/>
+        <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
+    </div>
+    <div>
+        <label>Email</label>
+        <input type="email" th:field="*{email}"/>
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+    </div>
+    <div>
+        <label>Fecha</label>
+        <input type="text" th:field="*{createAt}"/>
+        <span th:if="${#fields.hasErrors('createAt')}" th:errors="*{createAt}"></span>
+    </div>
+    <div>
+        <input type="submit" value="Crear"/>
+    </div>
+
+</form>
+
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

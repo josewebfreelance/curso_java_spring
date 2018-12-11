@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+    <header th:fragment="header">
+        <div th:if="${success != null}" th:text="${success}">
+            Test alert
+        </div>
+    </header>
+    <div th:fragment="container" class="containerr">
+
+    </div>
+    <footer th:fragment="footer">
+        Test Footer
+    </footer>
+
+</body>
+</html>
